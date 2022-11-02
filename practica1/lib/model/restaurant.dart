@@ -13,13 +13,13 @@ class Feature {
   Feature(this.icon, this.value, this.units);
 }
 
-class Product {
+class Restaurant {
   String name;
   String imageAsset;
   String description;
   double price;
   bool favorite = false;
-  Product({
+  Restaurant({
     required this.name,
     required this.imageAsset,
     required this.description,

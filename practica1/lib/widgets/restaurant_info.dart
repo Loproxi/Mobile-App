@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:practica1/model/restaurant.dart';
 
 class RestaurantInfo extends StatelessWidget {
+  final Restaurant restaurant;
   const RestaurantInfo({
     Key? key,
+    required this.restaurant,
   }) : super(key: key);
 
   @override
