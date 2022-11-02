@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:practica1/widgets/Restaurantinfo.dart';
+import 'package:practica1/model/restaurant.dart';
+import 'package:practica1/widgets/restaurant_info.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
                     //image: DecorationImage(image: AssetImage("a"))
                     color: Colors.black),
               ),
-              const RestaurantInfo(),
+              //const RestaurantInfo(restaurant: Restaurant(),),
             ],
           ),
         ),

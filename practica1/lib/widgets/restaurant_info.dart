@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class RestaurantInfo extends StatelessWidget {
   const RestaurantInfo({
@@ -42,7 +41,30 @@ class RestaurantInfo extends StatelessWidget {
                       ),
                     ),
                   ],
-                )
+                ),
+                const SizedBox(
+                  height: 5,
+                ),
+                Row(
+                  children: const [
+                    Text(
+                      "4.4",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Icon(
+                      Icons.star,
+                      size: 15,
+                    ),
+                    Text(
+                      " 6,700+ ratings",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
               ],
             ),
           ),
