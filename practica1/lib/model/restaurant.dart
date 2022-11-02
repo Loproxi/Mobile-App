@@ -16,13 +16,21 @@ class Feature {
 class Restaurant {
   String name;
   String imageAsset;
-  String description;
-  double price;
+  String schedule;
+  Variant reststate;
+  Variant priority;
+  String ratings;
+  double stars;
+  double timeleft;
   bool favorite = false;
   Restaurant({
     required this.name,
     required this.imageAsset,
-    required this.description,
-    required this.price,
+    required this.schedule,
+    required this.stars,
+    required this.reststate,
+    required this.ratings,
+    required this.timeleft,
+    required this.priority,
   });
 }
