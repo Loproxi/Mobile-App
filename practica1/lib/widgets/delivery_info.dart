@@ -9,10 +9,7 @@ class DeliveryInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.only(
-        top: 20,
-        bottom: 20,
-      ),
+      height: 70,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: const BorderRadius.all(
@@ -63,10 +60,14 @@ class DeliveryState extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         TextColored(
           text: num,
           color: color,
+        ),
+        const SizedBox(
+          height: 5,
         ),
         Text(
           line,
