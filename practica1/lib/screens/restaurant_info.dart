@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:practica1/model/restaurant.dart';
 import 'package:practica1/widgets/delivery_info.dart';
 import 'package:practica1/widgets/restaurant_badges.dart';
+import 'package:practica1/widgets/restaurant_promo.dart';
 import 'package:practica1/widgets/restaurant_state.dart';
 import 'package:provider/provider.dart';
 
@@ -75,19 +76,8 @@ class RestaurantMain extends StatelessWidget {
         const SizedBox(
           height: 25,
         ),
-        Container(
-          height: 100,
-          decoration: const BoxDecoration(
-            borderRadius: BorderRadius.all(
-              Radius.circular(15),
-            ),
-            image: DecorationImage(
-              image: AssetImage(
-                "assets/mcdo2.jpg",
-              ),
-              fit: BoxFit.fill,
-            ),
-          ),
+        const RestaurantPromo(
+          path: "assets/mcdo2.jpg",
         ),
       ],
     );
