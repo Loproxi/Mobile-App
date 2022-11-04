@@ -16,6 +16,7 @@ class Feature {
 class Restaurant {
   String name;
   String imageAsset;
+  String imagepromo;
   String schedule;
   Variant reststate;
   Variant priority;
@@ -26,6 +27,7 @@ class Restaurant {
   Restaurant({
     required this.name,
     required this.imageAsset,
+    required this.imagepromo,
     required this.schedule,
     required this.stars,
     required this.reststate,

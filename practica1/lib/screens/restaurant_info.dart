@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:practica1/model/restaurant.dart';
-import 'package:practica1/widgets/delivery_info.dart';
-import 'package:practica1/widgets/restaurant_badges.dart';
-import 'package:practica1/widgets/restaurant_promo.dart';
-import 'package:practica1/widgets/restaurant_state.dart';
+import 'package:practica1/widgets/app_button.dart';
+import 'package:practica1/widgets/bottom_navigation_.dart';
+import 'package:practica1/widgets/restaurant_info_space.dart';
 import 'package:provider/provider.dart';
 
 class RestaurantInfo extends StatelessWidget {
@@ -18,68 +17,69 @@ class RestaurantInfo extends StatelessWidget {
     return Provider.value(
       value: restaurant,
       child: Scaffold(
-        body: Center(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Expanded(
-                flex: 4,
-                child: Image.asset("assets/mcdo.png"),
+        body: Stack(
+          children: [
+            Center(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  const RestaurantPhoto(),
+                  Expanded(
+                    flex: 6,
+                    child: Container(
+                      padding: const EdgeInsets.all(20),
+                      child: const RestaurantInfoSpace(),
+                    ),
+                  ),
+                ],
               ),
-              Expanded(
-                flex: 6,
-                child: Container(
-                  padding: const EdgeInsets.all(20),
-                  child: const RestaurantMain(),
+            ),
+            const SafeArea(
+              child: Align(
+                alignment: Alignment.topLeft,
+                child: Padding(
+                  padding: EdgeInsets.all(20.0),
+                  child: BackButton(),
                 ),
               ),
-            ],
-          ),
+            ),
+            const AppButton(
+              alignment_: Alignment.topRight,
+              buttonicon: Icons.favorite_border_outlined,
+              paddingright: 80.0,
+              paddingtop: 20.0,
+            ),
+            const AppButton(
+              alignment_: Alignment.topRight,
+              buttonicon: Icons.ios_share_outlined,
+              paddingright: 10.0,
+              paddingtop: 20.0,
+            ),
+            const AppButton(
+              alignment_: Alignment.centerRight,
+              buttonicon: Icons.info_outline_rounded,
+              paddingright: 30.0,
+              paddingtop: 20.0,
+              ismini: true,
+            ),
+          ],
         ),
+        bottomNavigationBar: const BottomNavigationBarApp(),
       ),
     );
   }
 }
 
-class RestaurantMain extends StatelessWidget {
-  const RestaurantMain({
+class RestaurantPhoto extends StatelessWidget {
+  const RestaurantPhoto({
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text.rich(
-          TextSpan(
-            text: context.watch<Restaurant>().name,
-            style: const TextStyle(
-              fontSize: 30,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ),
-        const RestaurantState(),
-        const SizedBox(
-          height: 14,
-        ),
-        const DeliveryInfo(),
-        const SizedBox(
-          height: 25,
-        ),
-        RestaurantBadges(
-          badgeicon: Icons.group_add_outlined,
-          badgecolor: Colors.grey.shade300,
-          badgename: "Group",
-        ),
-        const SizedBox(
-          height: 25,
-        ),
-        const RestaurantPromo(
-          path: "assets/mcdo2.jpg",
-        ),
-      ],
+    return Expanded(
+      flex: 4,
+      child: Image.asset(context.watch<Restaurant>().imageAsset),
     );
   }
 }

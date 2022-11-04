@@ -16,7 +16,8 @@ class MyApp extends StatelessWidget {
       home: RestaurantInfo(
         restaurant: Restaurant(
           name: "McDonald's",
-          imageAsset: "assets/fotomcdo.png",
+          imageAsset: "assets/mcdo.png",
+          imagepromo: "assets/mcdo2.jpg",
           ratings: " 6,700+ ratings",
           reststate: Variant("Open now ", Colors.green),
           priority:
