@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:practica1/model/restaurant.dart';
+import 'package:practica1/widgets/app_button.dart';
 import 'package:practica1/widgets/delivery_info.dart';
 import 'package:practica1/widgets/restaurant_badges.dart';
 import 'package:practica1/widgets/restaurant_promo.dart';
@@ -71,7 +72,7 @@ class RestaurantInfoSpace extends StatelessWidget {
               badgename: "Most Liked",
               badgeheight: 25,
               textcolor: Colors.lightBlueAccent.shade700,
-            )
+            ),
           ],
         ),
       ),

@@ -6,6 +6,12 @@ class StringColor {
   StringColor(this.name, this.color);
 }
 
+class Deliveryinfo {
+  String num;
+  String line;
+  Deliveryinfo(this.num, this.line);
+}
+
 class Restaurant {
   String name;
   String imageAsset;
@@ -15,8 +21,8 @@ class Restaurant {
   StringColor priority;
   String ratings;
   double stars;
-  double timeleft;
-  bool favorite = false;
+  Deliveryinfo deliverytimeleft;
+  Deliveryinfo deliveryprice;
   Restaurant({
     required this.name,
     required this.imageAsset,
@@ -25,7 +31,8 @@ class Restaurant {
     required this.stars,
     required this.reststate,
     required this.ratings,
-    required this.timeleft,
+    required this.deliveryprice,
     required this.priority,
+    required this.deliverytimeleft,
   });
 }

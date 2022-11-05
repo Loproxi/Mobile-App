@@ -24,7 +24,8 @@ class MyApp extends StatelessWidget {
               StringColor("DashPass", const Color.fromARGB(255, 60, 145, 187)),
           schedule: "· Closes at 10:29 AM",
           stars: 4.4,
-          timeleft: 25,
+          deliverytimeleft: Deliveryinfo("25 min", "delivery time"),
+          deliveryprice: Deliveryinfo("\$0.00", "delivery fee on \$12+"),
         ),
       ),
     );
