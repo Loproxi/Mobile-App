@@ -1,16 +1,9 @@
 import 'dart:ui';
 
-class Variant {
+class StringColor {
   String name;
   Color color;
-  Variant(this.name, this.color);
-}
-
-class Feature {
-  String icon;
-  num value;
-  String units;
-  Feature(this.icon, this.value, this.units);
+  StringColor(this.name, this.color);
 }
 
 class Restaurant {
@@ -18,8 +11,8 @@ class Restaurant {
   String imageAsset;
   String imagepromo;
   String schedule;
-  Variant reststate;
-  Variant priority;
+  StringColor reststate;
+  StringColor priority;
   String ratings;
   double stars;
   double timeleft;

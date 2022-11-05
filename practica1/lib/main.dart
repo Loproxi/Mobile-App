@@ -19,9 +19,9 @@ class MyApp extends StatelessWidget {
           imageAsset: "assets/mcdo.png",
           imagepromo: "assets/mcdo2.jpg",
           ratings: " 6,700+ ratings",
-          reststate: Variant("Open now ", Colors.green),
+          reststate: StringColor("Open now ", Colors.green),
           priority:
-              Variant("DashPass", const Color.fromARGB(255, 60, 145, 187)),
+              StringColor("DashPass", const Color.fromARGB(255, 60, 145, 187)),
           schedule: "· Closes at 10:29 AM",
           stars: 4.4,
           timeleft: 25,
