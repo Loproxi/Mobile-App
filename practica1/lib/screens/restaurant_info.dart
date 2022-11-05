@@ -17,52 +17,54 @@ class RestaurantInfo extends StatelessWidget {
     return Provider.value(
       value: restaurant,
       child: Scaffold(
-        body: Stack(
-          children: [
-            Center(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  const RestaurantPhoto(),
-                  Expanded(
-                    flex: 6,
-                    child: Container(
-                      padding: const EdgeInsets.all(20),
-                      child: const RestaurantInfoSpace(),
+        body: SizedBox(
+          child: Stack(
+            children: [
+              Center(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    const RestaurantPhoto(),
+                    Expanded(
+                      flex: 6,
+                      child: Container(
+                        padding: const EdgeInsets.all(20),
+                        child: const RestaurantInfoSpace(),
+                      ),
                     ),
-                  ),
-                ],
-              ),
-            ),
-            const SafeArea(
-              child: Align(
-                alignment: Alignment.topLeft,
-                child: Padding(
-                  padding: EdgeInsets.all(20.0),
-                  child: BackButton(),
+                  ],
                 ),
               ),
-            ),
-            const AppButton(
-              alignment_: Alignment.topRight,
-              buttonicon: Icons.favorite_border_outlined,
-              paddingright: 80.0,
-              paddingtop: 20.0,
-            ),
-            const AppButton(
-              alignment_: Alignment.topRight,
-              buttonicon: Icons.ios_share_outlined,
-              paddingright: 10.0,
-              paddingtop: 20.0,
-            ),
-            const AppButton(
-              alignment_: Alignment.centerRight,
-              buttonicon: Icons.info_outline_rounded,
-              paddingright: 30.0,
-              paddingtop: 20.0,
-              ismini: true,
-            ),
-          ],
+              const SafeArea(
+                child: Align(
+                  alignment: Alignment.topLeft,
+                  child: Padding(
+                    padding: EdgeInsets.all(20.0),
+                    child: BackButton(),
+                  ),
+                ),
+              ),
+              const AppButton(
+                alignment_: Alignment.topRight,
+                buttonicon: Icons.favorite_border_outlined,
+                paddingright: 80.0,
+                paddingtop: 20.0,
+              ),
+              const AppButton(
+                alignment_: Alignment.topRight,
+                buttonicon: Icons.ios_share_outlined,
+                paddingright: 10.0,
+                paddingtop: 20.0,
+              ),
+              const AppButton(
+                alignment_: Alignment.centerRight,
+                buttonicon: Icons.info_outline_rounded,
+                paddingright: 30.0,
+                paddingtop: 20.0,
+                ismini: true,
+              ),
+            ],
+          ),
         ),
         bottomNavigationBar: const BottomNavigationBarApp(),
       ),
@@ -79,7 +81,17 @@ class RestaurantPhoto extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       flex: 4,
-      child: Image.asset(context.watch<Restaurant>().imageAsset),
+      child: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(
+              context.watch<Restaurant>().imageAsset,
+            ),
+            fit: BoxFit.fill,
+          ),
+        ),
+        //Image.asset(context.watch<Restaurant>().imageAsset),
+      ),
     );
   }
 }

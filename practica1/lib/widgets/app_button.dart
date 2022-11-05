@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class AppButton extends StatelessWidget {
+class AppButton extends StatefulWidget {
   final Alignment alignment_;
   final IconData buttonicon;
   final double? paddingtop;
@@ -16,23 +16,40 @@ class AppButton extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  State<AppButton> createState() => _AppButtonState();
+}
+
+class _AppButtonState extends State<AppButton> {
+  bool isFavorite = false;
+
+  void togglebutton() {
+    setState(() {
+      if (isFavorite) {
+        isFavorite = false;
+      } else {
+        isFavorite = true;
+      }
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Align(
-        alignment: alignment_,
+        alignment: widget.alignment_,
         child: Padding(
           padding: EdgeInsets.only(
-            top: paddingtop ?? 20.0,
-            right: paddingright ?? 20.0,
+            top: widget.paddingtop ?? 20.0,
+            right: widget.paddingright ?? 20.0,
           ),
           child: FloatingActionButton(
-            onPressed: () {},
+            onPressed: togglebutton,
             backgroundColor: Colors.white,
-            mini: ismini ?? false,
+            mini: widget.ismini ?? false,
             // ignore: unnecessary_const
             child: Icon(
-              buttonicon,
-              color: Colors.grey,
+              widget.buttonicon,
+              color: isFavorite ? Colors.red : Colors.grey,
             ),
           ),
         ),

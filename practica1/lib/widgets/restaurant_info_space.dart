@@ -13,60 +13,68 @@ class RestaurantInfoSpace extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text.rich(
-          TextSpan(
-            text: context.watch<Restaurant>().name,
-            style: const TextStyle(
-              fontSize: 30,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ),
-        const RestaurantState(),
-        const SizedBox(
-          height: 14,
-        ),
-        const DeliveryInfo(),
-        const SizedBox(
-          height: 25,
-        ),
-        RestaurantBadges(
-          badgeicon: Icons.group_add_outlined,
-          badgecolor: Colors.grey.shade300,
-          badgename: "Group",
-        ),
-        const SizedBox(
-          height: 25,
-        ),
-        RestaurantPromo(
-          path: context.watch<Restaurant>().imagepromo,
-        ),
-        const Padding(
-          padding: EdgeInsets.only(
-            top: 25.0,
-            bottom: 25.0,
-          ),
-          child: Text.rich(
-            TextSpan(
-              text: "Featured Items",
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
+    final screenSize = MediaQuery.of(context).size;
+    return SizedBox(
+      height: screenSize.height,
+      width: screenSize.width,
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text.rich(
+              TextSpan(
+                text: context.watch<Restaurant>().name,
+                style: const TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
-          ),
+            const RestaurantState(),
+            const SizedBox(
+              height: 14,
+            ),
+            const DeliveryInfo(),
+            const SizedBox(
+              height: 25,
+            ),
+            RestaurantBadges(
+              badgeicon: Icons.group_add_outlined,
+              badgecolor: Colors.grey.shade300,
+              badgename: "Group",
+            ),
+            const SizedBox(
+              height: 25,
+            ),
+            RestaurantPromo(
+              path: context.watch<Restaurant>().imagepromo,
+            ),
+            const Padding(
+              padding: EdgeInsets.only(
+                top: 20.0,
+                bottom: 20.0,
+              ),
+              child: Text.rich(
+                TextSpan(
+                  text: "Featured Items",
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
+            RestaurantBadges(
+              badgecolor: Colors.lightBlueAccent.withOpacity(0.5),
+              badgeicon: Icons.local_fire_department_outlined,
+              badgename: "Most Liked",
+              badgeheight: 25,
+              textcolor: Colors.lightBlueAccent.shade700,
+            )
+          ],
         ),
-        RestaurantBadges(
-          badgecolor: Colors.lightBlueAccent.withOpacity(0.5),
-          badgeicon: Icons.local_fire_department_outlined,
-          badgename: "Most Liked",
-          badgeheight: 25,
-          textcolor: Colors.lightBlueAccent.shade700,
-        )
-      ],
+      ),
     );
   }
 }
